@@ -5,7 +5,7 @@ metadata:
   name: tenant-sync
   namespace: tenant-appteam
 spec:
-  interval: 10m0s
+  interval: 2m0s
   path: ./apps/k8s
   prune: true
   sourceRef:

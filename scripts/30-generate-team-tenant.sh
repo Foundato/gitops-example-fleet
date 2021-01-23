@@ -34,10 +34,10 @@ flux create kustomization tenant-sync \
   --path="./apps/k8s" \
   --prune=true \
   --interval=2m \
-  --export > ${outpath}/tenant.yaml
+  --export > ${outpath}/tenant-sync.yaml
 
 echo "Creating kustomization for tenant in cluster folder"
-flux create kustomization tenant-sync \
+flux create kustomization ${team}-tenant-sync \
   --source=base-fleet-repo \
   --namespace=gitops-system \
   --path="./tenants/${team}" \
@@ -45,8 +45,8 @@ flux create kustomization tenant-sync \
   --interval=2m \
   --export > ${outpathCluster}/tenant-sync.yaml
 
-KUSTOMIZATION=${outpath}/kustomization.yaml
-if [ -f "$KUSTOMIZATION" ]; then
-    rm $KUSTOMIZATION
-fi
-(cd ${outpath} && kustomize create --autodetect)
+# KUSTOMIZATION=${outpath}/kustomization.yaml
+# if [ -f "$KUSTOMIZATION" ]; then
+#     rm $KUSTOMIZATION
+# fi
+# (cd ${outpath} && kustomize create --autodetect)
