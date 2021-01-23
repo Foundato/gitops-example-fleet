@@ -8,6 +8,7 @@ spec:
   interval: 2m0s
   path: ./apps/k8s
   prune: true
+  serviceAccountName: appteam
   sourceRef:
     kind: GitRepository
     name: tenant-repo

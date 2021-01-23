@@ -16,7 +16,7 @@ flux create tenant ${team} \
   --with-namespace=${namespace} \
   --with-namespace=${team}-test \
   --with-namespace=${team}-dev \
-  --cluster-role=view \
+  --cluster-role=admin \
   --export > ${outpath}/tenant.yaml
 
 echo "Creating git repo resource..."
@@ -34,6 +34,7 @@ flux create kustomization tenant-sync \
   --path="./apps/k8s" \
   --prune=true \
   --interval=2m \
+  --service-account=${team} \
   --export > ${outpath}/tenant-sync.yaml
 
 echo "Creating kustomization for tenant in cluster folder"
