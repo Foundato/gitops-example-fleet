@@ -12,8 +12,8 @@ mkdir -p ${outpath}
 echo "Generating tenant..."
 flux create tenant ${team} \
   --with-namespace=${namespace} \
-  --with-namespace=appteam1-test-ns \
-  --with-namespace=appteam1-dev-ns \
+  --with-namespace=appteam1-test \
+  --with-namespace=appteam1-dev \
   --cluster-role=view \
   --export > ${outpath}/tenant.yaml
 

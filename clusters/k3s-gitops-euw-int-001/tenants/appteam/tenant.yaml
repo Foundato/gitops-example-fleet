@@ -41,7 +41,7 @@ kind: Namespace
 metadata:
   labels:
     toolkit.fluxcd.io/tenant: appteam
-  name: appteam1-test-ns
+  name: appteam1-test
 
 ---
 apiVersion: v1
@@ -50,7 +50,7 @@ metadata:
   labels:
     toolkit.fluxcd.io/tenant: appteam
   name: appteam
-  namespace: appteam1-test-ns
+  namespace: appteam1-test
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -59,7 +59,7 @@ metadata:
   labels:
     toolkit.fluxcd.io/tenant: appteam
   name: appteam-reconciler
-  namespace: appteam1-test-ns
+  namespace: appteam1-test
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -67,10 +67,10 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: gotk:appteam1-test-ns:reconciler
+  name: gotk:appteam1-test:reconciler
 - kind: ServiceAccount
   name: appteam
-  namespace: appteam1-test-ns
+  namespace: appteam1-test
 
 ---
 apiVersion: v1
@@ -78,7 +78,7 @@ kind: Namespace
 metadata:
   labels:
     toolkit.fluxcd.io/tenant: appteam
-  name: appteam1-dev-ns
+  name: appteam1-dev
 
 ---
 apiVersion: v1
@@ -87,7 +87,7 @@ metadata:
   labels:
     toolkit.fluxcd.io/tenant: appteam
   name: appteam
-  namespace: appteam1-dev-ns
+  namespace: appteam1-dev
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -96,7 +96,7 @@ metadata:
   labels:
     toolkit.fluxcd.io/tenant: appteam
   name: appteam-reconciler
-  namespace: appteam1-dev-ns
+  namespace: appteam1-dev
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -104,8 +104,8 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: gotk:appteam1-dev-ns:reconciler
+  name: gotk:appteam1-dev:reconciler
 - kind: ServiceAccount
   name: appteam
-  namespace: appteam1-dev-ns
+  namespace: appteam1-dev
 
