@@ -3,12 +3,12 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
   name: tenant-sync
-  namespace: gitops-system
+  namespace: tenant-appteam
 spec:
   interval: 2m0s
-  path: ./tenants/appteam
+  path: ./apps/k8s
   prune: true
   sourceRef:
     kind: GitRepository
-    name: base-fleet-repo
+    name: tenant-repo
 

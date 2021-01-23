@@ -3,11 +3,13 @@
 team="appteam"
 namespace="tenant-${team}"
 cluster="k3s-gitops-euw-int-001"
-outpath="./clusters/${cluster}/tenants/${team}"
+outpath="./tenants/${team}"
+outpathCluster="./clusters/${cluster}/tenants/${team}"
 target_repo="https://github.com/Foundato/gitops-example-tenant"
 
 
 mkdir -p ${outpath}
+mkdir -p ${outpathCluster}
 
 echo "Generating tenant..."
 flux create tenant ${team} \
@@ -31,8 +33,17 @@ flux create kustomization tenant-sync \
   --namespace=${namespace} \
   --path="./apps/k8s" \
   --prune=true \
-  --interval=10m \
-  --export > ${outpath}/tenant-sync.yaml
+  --interval=2m \
+  --export > ${outpath}/tenant.yaml
+
+echo "Creating kustomization for tenant in cluster folder"
+flux create kustomization tenant-sync \
+  --source=base-fleet-repo \
+  --namespace=gitops-system \
+  --path="./tenants/${team}" \
+  --prune=true \
+  --interval=2m \
+  --export > ${outpathCluster}/tenant-sync.yaml
 
 KUSTOMIZATION=${outpath}/kustomization.yaml
 if [ -f "$KUSTOMIZATION" ]; then
