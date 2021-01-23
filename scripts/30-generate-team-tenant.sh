@@ -20,7 +20,7 @@ flux create tenant ${team} \
 echo "Creating git repo resource..."
 flux create source git tenant-repo \
   --url=${target_repo} \
-  --branch=master \
+  --branch=main \
   --interval=1m \
   --namespace=${namespace} \
   --export > ${outpath}/tenant-repo.yaml
