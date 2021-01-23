@@ -26,7 +26,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: view
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
@@ -63,7 +63,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: view
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
@@ -100,7 +100,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: view
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User

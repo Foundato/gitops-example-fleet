@@ -16,7 +16,7 @@ flux create tenant ${team} \
   --with-namespace=${namespace} \
   --with-namespace=${team}-test \
   --with-namespace=${team}-dev \
-  --cluster-role=admin \
+  --cluster-role=view \
   --export > ${outpath}/tenant.yaml
 
 echo "Creating git repo resource..."
