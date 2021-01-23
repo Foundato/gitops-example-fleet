@@ -2,7 +2,7 @@
 
 team="infrastructure"
 namespace="tenant-${team}"
-cluster="k3s-gitops-euw-int-001"
+cluster="k3s-gitops-euw-prod-001"
 outpath="./clusters/${cluster}/tenants/${team}"
 target_repo="https://github.com/Foundato/gitops-example-infrastructure"
 
@@ -16,7 +16,7 @@ flux create tenant ${team} \
 echo "Creating git repo resource..."
 flux create source git tenant-repo \
   --url=${target_repo} \
-  --branch=main \
+  --tag=0.1.0 \
   --interval=1m \
   --namespace=${namespace} \
   --export > ${outpath}/tenant-repo.yaml

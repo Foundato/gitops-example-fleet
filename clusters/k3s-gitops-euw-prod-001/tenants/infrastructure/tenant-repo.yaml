@@ -1,0 +1,12 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: tenant-repo
+  namespace: tenant-infrastructure
+spec:
+  interval: 1m0s
+  ref:
+    tag: v0.1.0
+  url: https://github.com/Foundato/gitops-example-infrastructure
+

@@ -34,5 +34,8 @@ flux create kustomization base-fleet-sync \
   --interval=10m \
   --export > ${outpath}/base-fleet-sync.yaml
 
-rm ${outpath}/kustomization.yaml
+KUSTOMIZATION=${outpath}/kustomization.yaml
+if [ -f "$KUSTOMIZATION" ]; then
+    rm $KUSTOMIZATION
+fi
 (cd ${outpath} && kustomize create --namespace=${namespace} --autodetect)
