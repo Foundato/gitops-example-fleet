@@ -2,7 +2,7 @@
 
 namespace="gitops-system"
 cluster="k3s-gitops-euw-int-001"
-outpath="../clusters/${cluster}/system/${namespace}"
+outpath="clusters/${cluster}/system/${namespace}"
 flux_version="v0.5.8"
 target_repo="https://github.com/Foundato/gitops-example-fleet"
 
@@ -34,4 +34,5 @@ flux create kustomization base-fleet-sync \
   --interval=10m \
   --export > ${outpath}/base-fleet-sync.yaml
 
-(cd ${outpath} && kustomize create --namespace=base-gitops --autodetect)
+rm ${outpath}/kustomization.yaml
+(cd ${outpath} && kustomize create --namespace=${namespace} --autodetect)

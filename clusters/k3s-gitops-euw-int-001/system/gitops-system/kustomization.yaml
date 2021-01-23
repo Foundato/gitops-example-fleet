@@ -4,4 +4,4 @@ resources:
 - base-fleet-repo.yaml
 - base-fleet-sync.yaml
 - gotk-template.yaml
-namespace: base-gitops
+namespace: gitops-system
