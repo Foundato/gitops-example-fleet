@@ -4,4 +4,3 @@ resources:
 - tenant-repo.yaml
 - tenant-sync.yaml
 - tenant.yaml
-namespace: tenant-appteam
