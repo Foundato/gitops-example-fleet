@@ -12,9 +12,9 @@ mkdir -p ${outpath}
 echo "Generating tenant..."
 flux create tenant ${team} \
   --with-namespace=${namespace} \
-  --with-namespace=appteam1-test \
-  --with-namespace=appteam1-dev \
-  --cluster-role=view \
+  --with-namespace=${team}-test \
+  --with-namespace=${team}-dev \
+  --cluster-role=admin \
   --export > ${outpath}/tenant.yaml
 
 echo "Creating git repo resource..."

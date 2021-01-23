@@ -89,7 +89,11 @@ I0123 13:59:53.710570       6 leaderelection.go:253] successfully acquired lease
 
 Now that the basic sync is established, we need to first add the infra repository sync to this cluster.
 
+```sh
+./scripts/30-generate-team-tenant.sh
+```
 
+After the tenant is generated, commit and push it. The sync process should automatically apply it to the cluster.
 
 ## Known Issues
 
