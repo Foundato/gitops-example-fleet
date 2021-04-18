@@ -113,3 +113,5 @@ unable to recognize "clusters/k3s-gitops-euw-int-001/system/gitops-system": no m
 ```
 
 In this case, just rerun the script.
+
+
